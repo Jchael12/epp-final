@@ -130,16 +130,24 @@ const Login = () => {
           {/*   <img src={gLogo} className="w-6 h-6 inline-block" /> */}
           {/*   Login with Google */}
           {/* </button> */}
-          <p className="text-sm ml-2  cursor-pointer">
+          {/*<p className="text-sm ml-2  cursor-pointer">*/}
+          {/*
             Already had an account?{" "}
+*/}
+          {/*
             <Link
               to="/sign-up"
               className="text-blue-800 hover:text-blue-500 underline font-semibold"
             >
               Signup
             </Link>
-            .
+
+*/}
+          .
+          {/*
           </p>
+
+*/}
         </form>
       </div>
     </div>

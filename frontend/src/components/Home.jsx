@@ -183,13 +183,16 @@ const Home = () => {
           </motion.p>
         </div>
       </motion.div>
+      <h1 className="text-center text-2xl mt-5 text-white">
+        Brief History of EARIST
+      </h1>
       <div className="flex items-center justify-center mx-20 my-8">
         <TimeLine />
       </div>
       <motion.div
         initial={{
           opacity: 0,
-          x: 50,
+          y: 50,
         }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -219,7 +222,7 @@ const Home = () => {
               y: 50,
             }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
             className="text-base text-start flex flex-col"
           >
             <span>
