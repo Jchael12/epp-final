@@ -226,17 +226,17 @@ const Home = () => {
             className="text-base text-start flex flex-col"
           >
             <span>
-              EARIST developments were made possible via three Republic Acts and
-              a Presidential Decree:
+              • EARIST developments were made possible via three Republic Acts
+              and a Presidential Decree:
             </span>
             <span className="mt-2">
-              RA 4071, jointly sponsored by Congressman Ramon D. Bagatsing and
+              • RA 4071, jointly sponsored by Congressman Ramon D. Bagatsing and
               Sali Ututalum in 1964, authorized the establishment of the
               Technical Education Department without changing the name of the
               school. It was headed by a vocational director.
             </span>
             <span className="mt-2">
-              RA 5088, sponsored by Congressman Sergio Loyola in 1967,
+              • RA 5088, sponsored by Congressman Sergio Loyola in 1967,
               authorized the renaming of ERVHS to Eulogio "Amang" Rodriguez
               Memorial School of Arts and Trades
             </span>
