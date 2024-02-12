@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin",
-        element: <PrivateRoute />,
+        element: <PrivateRoute isAdmin={true} />,
       },
       {
         path: "/admin/dashboard/upload",
