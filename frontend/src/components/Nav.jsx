@@ -37,17 +37,6 @@ function Nav() {
     }
   };
 
-  const handleLinkClick = (path) => {
-    if (window.location.pathname === path) {
-      window.scrollTo(0, 0);
-    } else {
-      navigate(path);
-    }
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  };
-
   const handleLogout = async () => {
     try {
       await logout();

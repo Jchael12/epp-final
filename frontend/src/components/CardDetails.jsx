@@ -62,16 +62,18 @@ const CardDetails = () => {
                 <p className="p-10 break-all">{cardDetails.description}</p>
               </div>
               {clientLoggedIn && (
-                <div className="m-5 text-white bg-red-900 w-max p-2 rounded-md">
-                  <h1 className="text-amber-300">
-                    Evaluate Program:
-                    <a
-                      href="https://forms.gle/NaWZ5qiVJiMeMzt17"
-                      className="text-white underline underline-offset-4 hover:text-amber-300 ml-2 p-1 "
-                    >
-                      Form link
-                    </a>
-                  </h1>
+                <div className="flex items-center justify-center">
+                  <div className="m-5 text-white bg-red-900 w-max p-2 rounded-md">
+                    <h1 className="text-amber-300">
+                      Evaluate Program:
+                      <a
+                        href="https://forms.gle/NaWZ5qiVJiMeMzt17"
+                        className="text-white underline underline-offset-4 hover:text-amber-300 ml-2 p-1 "
+                      >
+                        Form link
+                      </a>
+                    </h1>
+                  </div>
                 </div>
               )}
             </section>
