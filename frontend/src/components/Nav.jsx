@@ -83,8 +83,8 @@ function Nav() {
           />
           <h1
             className={`md:ml-32 ml-14 md:top-10 md:flex hidden absolute font-semibold ${
-              dashboardAvailable && clientLoggedIn
-                ? "text-sm"
+              dashboardAvailable && !clientLoggedIn
+                ? "md:text-[11px] md:top-11"
                 : "md:text-[17px]"
             } text-red-900 uppercase`}
           >
@@ -102,14 +102,6 @@ function Nav() {
           }`}
         >
           <div className="flex flex-col gap-6 text-gray-900 text-md">
-            {dashboardAvailable && (
-              <Link
-                to="/admin/dashboard/manage"
-                className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
-              >
-                Admin Dashboard
-              </Link>
-            )}
             {!clientLoggedIn && (
               <Link
                 onClick={closeMenu}
@@ -131,20 +123,20 @@ function Nav() {
           </div>
         </div>
         <div className="hidden md:flex gap-10 text-gray-700 text-md uppercase">
+          <Link
+            className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
+            to="/programs"
+          >
+            Programs & Events
+          </Link>
           {!user && (
             <>
-              <Link
-                className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
-                to="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
-                to="/programs"
-              >
-                Programs & Events
-              </Link>
               <Link
                 className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
                 to="/login"
@@ -159,14 +151,6 @@ function Nav() {
               className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
             >
               Admin Dashboard
-            </Link>
-          )}
-          {user && user.email !== "banaga.rendell.eccbscs@gmail.com" && (
-            <Link
-              to="https://forms.gle/NaWZ5qiVJiMeMzt17"
-              className="text-red-900 hover:bg-red-800 hover:p-2 p-2 ease-in-out duration-300 hover:text-amber-300 rounded-sm"
-            >
-              Evaluation
             </Link>
           )}
           {user && (
