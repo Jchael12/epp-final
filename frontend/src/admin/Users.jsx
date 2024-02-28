@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contacts/AuthProvider";
 import { Button, Label, TextInput } from "flowbite-react";
 import axios from "axios";
 
@@ -25,16 +27,49 @@ const Users = () => {
     fetchPrograms();
   }, []);
 
+  const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("error");
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        alert("Sign up successfully!");
+        navigate(from, { replace: true });
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+        // ..
+      });
+  };
+
   return (
     <div>
-      <form className="flex max-w-md flex-col gap-4 mt-20 ">
+      <form
+        onSubmit={handleSignup}
+        className="flex max-w-md flex-col gap-4 mt-20 "
+      >
         <h1 className="mb-5 text-2xl font-bold">Create Users Accounts</h1>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="email1" value="Email" />
+            <Label htmlFor="email" value="Email" />
           </div>
           <TextInput
-            id="email1"
+            id="email"
             type="email"
             placeholder="test@earist.com"
             className="w-60"
@@ -43,10 +78,10 @@ const Users = () => {
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="password1" value="Password" />
+            <Label htmlFor="password" value="Password" />
           </div>
           <TextInput
-            id="password1"
+            id="password"
             type={showPassword ? "text" : "password"}
             placeholder="password"
             required
@@ -66,19 +101,19 @@ const Users = () => {
             </label>
           </div>
         </div>
-        <div className="flex flex-col">
-          <Label htmlFor="content" value="Content" className="mb-2" />
-          <select className="w-52 p-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500">
-            <option disabled>Select Content</option>
-            {programData.map((program, id) => (
-              <option key={id} value={program.title}>
-                {program.title}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* <div className="flex flex-col"> */}
+        {/*   <Label htmlFor="content" value="Content" className="mb-2" /> */}
+        {/*   <select className="w-52 p-2 rounded border border-gray-300 focus:outline-none focus:border-indigo-500"> */}
+        {/*     <option disabled>Select Content</option> */}
+        {/*     {programData.map((program, id) => ( */}
+        {/*       <option key={id} value={program.title}> */}
+        {/*         {program.title} */}
+        {/*       </option> */}
+        {/*     ))} */}
+        {/*   </select> */}
+        {/* </div> */}
         <Button
-          className="bg-red-900 hover:bg-amber-300 px-5 absolute bottom-8 right-[500px]"
+          className="bg-red-900 hover:bg-amber-300 px-5 absolute bottom-8 right-[600px]"
           type="submit"
         >
           Submit
